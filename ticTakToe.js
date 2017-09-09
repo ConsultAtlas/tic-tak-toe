@@ -2,7 +2,7 @@
 //*          Tic-Tac-Toe           *
 //**********************************
 
-
+//Define Your State
 var row1 = ["", "", ""];
 var row2 = ["", "", ""];
 var row3 = ["", "", ""];
@@ -29,7 +29,7 @@ function valueAtPosition(rowIndex, columnIndex) {
 	return value;
 }
 
-//console.log(valueAtPosition(0,2));
+//Actions
 
 function showTheBoard() {
 	//prints each line of the array. specificly prints each line 
@@ -70,11 +70,44 @@ function userInput()	{
 
 function hasSomeoneWon() {
 
+var someoneWon = false;
+
+var winConditions = [
+	valueAtPosition(0,0) + valueAtPosition(0,1) + valueAtPosition(0,2), //row 1
+	valueAtPosition(1,0) + valueAtPosition(1,1) + valueAtPosition(1,2), //row 2
+	valueAtPosition(2,0) + valueAtPosition(2,1) + valueAtPosition(2,2), //row 3
+
+	valueAtPosition(0,0) + valueAtPosition(1,0) + valueAtPosition(2,0), //col1
+	valueAtPosition(0,1) + valueAtPosition(1,1) + valueAtPosition(2,2), //col2
+	valueAtPosition(0,2) + valueAtPosition(1,2) + valueAtPosition(2,2), //col3
+
+	valueAtPosition(0,0) + valueAtPosition(1,1) + valueAtPosition(2,2), //diag1
+	valueAtPosition(0,2) + valueAtPosition(1,1) + valueAtPosition(2,0) //diag2
+]
+
+	for ( var i = 0; i<8; i++ ) {
+		if (winConditions[i] == 'XXX' || winConditions[i] == "OOO") {
+
+			return true;
+		}
+
+	}
+	return false;
 }
 
 while ( !hasSomeoneWon() ) {
 	userInput();
 }
+
+var victor = '';
+
+if (isplayerXTurn) {
+	victor = "O";
+} else {
+	victor = "X";
+}
+
+alert("victory! Player " + victor " has won!");
 
 
 
