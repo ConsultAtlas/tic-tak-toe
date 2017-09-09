@@ -3,9 +3,9 @@
 //**********************************
 
 
-var row1 = ["", "", ""];
-var row2 = ["", "", ""];
-var row3 = ["", "", ""];
+var row1 = ["X", "O", "X"];
+var row2 = ["O", "X", "O"];
+var row3 = ["X", "O", "X"];
 
 
 var board = [
@@ -14,5 +14,24 @@ var board = [
 	row3,
 ];
 
-var turn = true; // true is X, false is O
+var isplayerXTurn = true; // true is X's turn.
 
+
+function valueAtPosition(rowIndex, columnIndex) {
+	//row is a number between 0 and 2
+	//column is a number between 0 and 2
+	
+	var row = board[rowIndex];
+
+	var value = row[columnIndex];
+
+	return value;
+}
+
+//console.log(valueAtPosition(0,2));
+
+function showTheBoard() {
+	console.log(board);
+}
+
+showTheBoard();
