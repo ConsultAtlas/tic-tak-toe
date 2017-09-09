@@ -3,9 +3,9 @@
 //**********************************
 
 
-var row1 = ["X", "O", "X"];
-var row2 = ["O", "X", "O"];
-var row3 = ["X", "O", "X"];
+var row1 = ["", "", ""];
+var row2 = ["", "", ""];
+var row3 = ["", "", ""];
 
 
 var board = [
@@ -15,6 +15,7 @@ var board = [
 ];
 
 var isplayerXTurn = true; // true is X's turn.
+
 
 
 function valueAtPosition(rowIndex, columnIndex) {
@@ -31,7 +32,26 @@ function valueAtPosition(rowIndex, columnIndex) {
 //console.log(valueAtPosition(0,2));
 
 function showTheBoard() {
-	console.log(board);
+	//prints each line of the array. specificly prints each line 
+	//so that the console doesnt colapse each line.
+	console.log(board[0]);
+	console.log(board[1]);
+	console.log(board[2]);
+}
+
+
+
+function setValueAtPosition(rowIndex, columnIndex) {
+	if (isplayerXTurn == true) {
+		board[rowIndex][columnIndex] = 'X';
+	} else {
+		board[rowIndex][columnIndex] = 'O';
+	}
 }
 
 showTheBoard();
+setValueAtPosition(0,0);
+showTheBoard();
+
+
+
