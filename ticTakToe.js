@@ -37,21 +37,45 @@ function showTheBoard() {
 	console.log(board[0]);
 	console.log(board[1]);
 	console.log(board[2]);
+	console.log("***************************")
 }
 
 
 
 function setValueAtPosition(rowIndex, columnIndex) {
-	if (isplayerXTurn == true) {
+	//checks to see whose trun it is and then changes
+	//the value of the game at the given index to that
+	//players symbol.
+	if (isplayerXTurn) {
 		board[rowIndex][columnIndex] = 'X';
 	} else {
 		board[rowIndex][columnIndex] = 'O';
 	}
+	showTheBoard();
+	isplayerXTurn = !isplayerXTurn;
 }
 
-showTheBoard();
-setValueAtPosition(0,0);
-showTheBoard();
+function userInput()	{
+	var rowChoice = prompt('Enter a row');
+	var columnChoice = prompt('Enter a Column');
+
+	if (valueAtPosition(rowChoice,columnChoice) == "") {
+		setValueAtPosition(rowChoice,columnChoice);
+	} else {
+		alert('Invalid Choice, some one already took that.');
+	}
+
+	
+}
+
+function hasSomeoneWon() {
+
+}
+
+while ( !hasSomeoneWon() ) {
+	userInput();
+}
+
 
 
 
