@@ -14,5 +14,5 @@ var board = [
 	row3,
 ];
 
-row1[0] = "X";
+var turn = true; // true is X, false is O
 
